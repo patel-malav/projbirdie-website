@@ -1,0 +1,21 @@
+:host {
+    height: 100%;
+}
+
+#login, #register, #account {
+    display: none;
+}
+
+section {
+    height: 100%;
+    h2, form {
+        padding: 0px 16px;
+    }
+    form {
+        display: grid;
+    }
+}
+
+#account {
+    display: block;
+}

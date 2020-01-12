@@ -31,7 +31,10 @@
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/three/build/three.min.js",
+              "./glob_scripts/hello.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -97,7 +100,10 @@
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/three/build/three.min.js",
+              "./glob_scripts/hello.js"
+            ]
           }
         },
         "lint": {

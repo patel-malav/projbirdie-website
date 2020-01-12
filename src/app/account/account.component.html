@@ -1,0 +1,47 @@
+<section id="login">
+    <h2>{{title | uppercase}}</h2>
+    <form>
+        <mat-form-field>
+            <input matInput type="email" placeholder="Email">
+            <mat-error>error</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="password" placeholder="Password">
+            <mat-error>error</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="accent">Login</button>
+        <a routerLink>New Here? Register here</a>
+    </form>
+</section>
+<section id="register">
+    <h2>{{title | uppercase}}</h2>
+    <form>
+        <mat-form-field>
+            <input matInput type="email" placeholder="Email">
+            <mat-error>error</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="text" placeholder="Username">
+            <mat-error>error</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="password" placeholder="Password">
+            <mat-error>error</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="password" placeholder="Confirm Password">
+            <mat-error>error</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="accent">Signup</button>
+        <a routerLink="/login">Already registered? Click here</a>
+    </form>
+</section>
+<section id="account">
+    <h2>{{title | uppercase}}</h2>
+    <div id="profile">
+        <img src="assets/placeholder.png" alt="user img" style="width: 64px;height: 64px;">
+    </div>
+    <form>
+        
+    </form>
+</section>

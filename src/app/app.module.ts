@@ -4,15 +4,45 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavigationComponent } from './navigation/navigation.component';
+import { ExploreComponent } from './explore/explore.component';
+
+// Angular Material Modules
+import {MatMenuModule} from '@angular/material/menu';
+import {MatToolbarModule} from '@angular/material/toolbar'; 
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatListModule} from '@angular/material/list';
+import { AccountComponent } from './account/account.component'; 
+import {MatInputModule} from '@angular/material/input'; 
+import {MatFormFieldModule} from '@angular/material/form-field'; 
+import {MatCheckboxModule} from '@angular/material/checkbox'; 
+import {MatSlideToggleModule} from '@angular/material/slide-toggle'; 
+import {MatRadioModule} from '@angular/material/radio'; 
+import {MatDatepickerModule} from '@angular/material/datepicker'; 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavigationComponent,
+    ExploreComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatListModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatCheckboxModule,
+    MatSlideToggleModule,
+    MatRadioModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
