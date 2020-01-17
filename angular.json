@@ -32,8 +32,7 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "./node_modules/three/build/three.min.js",
-              "./glob_scripts/hello.js"
+              "./node_modules/three/build/three.min.js"
             ]
           },
           "configurations": {
