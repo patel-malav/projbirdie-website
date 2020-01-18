@@ -1,0 +1,23 @@
+div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: min-content min-content;
+    #contribute {
+        grid-area: contribute;
+    }
+    #explore {
+        grid-area: explore;
+    }
+    #mylist {
+        grid-area: mylist;
+    }
+    #account {
+        grid-area: account;
+    }
+    grid-template-areas: "contribute explore"
+                         "mylist account";
+}
+
+.hide {
+    display: none;
+}

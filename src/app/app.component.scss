@@ -1,0 +1,33 @@
+:host {
+    display: grid;
+    grid-template-rows: min-content min-content 100vh min-content;
+    grid-template-columns: 1fr;
+    header {
+        grid-area: header;
+    }
+    nav {
+        grid-area: navigation;
+    }
+    main {
+        grid-area: main;
+    }
+    footer {
+        grid-area: footer;
+    }
+    grid-template-areas: "header"
+                         "navigation"
+                         "main"
+                         "footer";
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { }
