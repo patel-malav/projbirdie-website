@@ -1,0 +1,21 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    h2 {
+        padding-left: 2rem;
+    }
+    form {
+        height: 70%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: min-content min-content min-content min-content min-content min-content;
+        mat-form-field, mat-checkbox {
+            margin: 1rem 0;
+            padding: 0 2rem;
+        }
+        button {
+            margin: 2rem 5rem;
+        }
+    }
+}

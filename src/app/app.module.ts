@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './base/app-routing.module';
+import { AppRoutingModule } from './components/base/app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // Angular Material Modules
 import {MatMenuModule} from '@angular/material/menu';
@@ -17,11 +18,16 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle'; 
 import {MatRadioModule} from '@angular/material/radio'; 
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { NavigationComponent } from './base/navigation/navigation.component';
-import { FooterComponent } from './base/footer/footer.component';
-import { HeaderComponent } from './base/header/header.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { AccountComponent } from './account/account.component'; 
+
+// Components
+import { NavigationComponent } from './components/base/navigation/navigation.component';
+import { FooterComponent } from './components/base/footer/footer.component';
+import { HeaderComponent } from './components/base/header/header.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AccountComponent } from './components/account/account.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component'; 
+
 
 @NgModule({
   declarations: [
@@ -30,12 +36,15 @@ import { AccountComponent } from './account/account.component';
     FooterComponent,
     HeaderComponent,
     DashboardComponent,
-    AccountComponent
+    AccountComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,

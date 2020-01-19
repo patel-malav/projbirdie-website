@@ -1,0 +1,21 @@
+<h2>Register</h2>
+<mat-divider></mat-divider>
+<form novalidate [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+        <input matInput type="text" placeholder="Enter Username" formControlName="username">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="email" placeholder="Enter Email" formControlName="email">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="password" placeholder="Enter Password" formControlName="password">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="password" placeholder="Password Confirmation" formControlName="confirm">
+    </mat-form-field>
+    <mat-checkbox formControlName="tnc">
+        Agree T&C
+    </mat-checkbox>
+    <button mat-raised-button type="submit" [disabled]="!registerForm.valid">Register</button>
+</form>
+<mat-divider></mat-divider>

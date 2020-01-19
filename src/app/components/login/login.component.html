@@ -1,0 +1,12 @@
+<h2>Login</h2>
+<mat-divider></mat-divider>
+<form novalidate [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+        <input matInput type="email" placeholder="Enter Email" formControlName="email">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="password" placeholder="Enter Password" formControlName="password">
+    </mat-form-field>
+    <button mat-raised-button type="submit" [disabled]="!loginForm.valid">Login</button>
+</form>
+<mat-divider></mat-divider>

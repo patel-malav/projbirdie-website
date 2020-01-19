@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationService } from '../navigation.service';
-import { fromEvent } from 'rxjs';
+import { NavigationService } from '../services/navigation.service';
 
 @Component({
   selector: 'app-header',
