@@ -17,4 +17,8 @@ export class HeaderComponent implements OnInit {
   toggleNav(event) {
     this.navService.isOpen.next(event);
   }
+
+  // redirDashboard() {
+  //   console.log('Click');
+  // }
 }

@@ -4,6 +4,9 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
 import { AccountComponent } from '../account/account.component';
 import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
+import { ContributeComponent } from '../contribute/contribute.component';
+import { MylistComponent } from '../mylist/mylist.component';
+import { ExploreComponent } from '../explore/explore.component';
 
 const routes: Routes = [
   {
@@ -25,6 +28,18 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'contribute',
+    component: ContributeComponent
+  },
+  {
+    path: 'mylist',
+    component: MylistComponent
+  },
+  {
+    path: 'explore',
+    component: ExploreComponent
   }
 ];
 

@@ -26,7 +26,10 @@ import { HeaderComponent } from './components/base/header/header.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AccountComponent } from './components/account/account.component';
 import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component'; 
+import { RegisterComponent } from './components/register/register.component';
+import { ContributeComponent } from './components/contribute/contribute.component';
+import { MylistComponent } from './components/mylist/mylist.component';
+import { ExploreComponent } from './components/explore/explore.component'; 
 
 
 @NgModule({
@@ -39,6 +42,9 @@ import { RegisterComponent } from './components/register/register.component';
     AccountComponent,
     LoginComponent,
     RegisterComponent,
+    ContributeComponent,
+    MylistComponent,
+    ExploreComponent,
   ],
   imports: [
     BrowserModule,
