@@ -5,6 +5,9 @@ import { AppRoutingModule } from './components/base/app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { firebaseConfig } from '../environments/environment';
 
 // Angular Material Modules
 import {MatMenuModule} from '@angular/material/menu';
@@ -30,6 +33,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ContributeComponent } from './components/contribute/contribute.component';
 import { MylistComponent } from './components/mylist/mylist.component';
 import { ExploreComponent } from './components/explore/explore.component'; 
+import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 
 
 @NgModule({
@@ -51,6 +55,9 @@ import { ExploreComponent } from './components/explore/explore.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
+    AngularFireAuthGuardModule,
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,

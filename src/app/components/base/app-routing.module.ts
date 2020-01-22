@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AngularFireAuthGuard, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
+
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { AccountComponent } from '../account/account.component';
 import { LoginComponent } from '../login/login.component';
@@ -8,6 +10,10 @@ import { ContributeComponent } from '../contribute/contribute.component';
 import { MylistComponent } from '../mylist/mylist.component';
 import { ExploreComponent } from '../explore/explore.component';
 
+export function redirectUnauthorizedToLogin() {
+  return redirectUnauthorizedTo(['login']);
+}
+
 const routes: Routes = [
   {
     path: '',
@@ -15,7 +21,9 @@ const routes: Routes = [
   },
   {
     path: 'account',
-    component: AccountComponent
+    component: AccountComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin }
   },
   {
     path: 'dashboard',

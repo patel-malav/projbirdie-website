@@ -1,1 +1,12 @@
-<h1>Account</h1>
+<ng-container *ngIf="authService.currentUser$ | async; then loggedIn else default"> -->
+</ng-container>
+<ng-template #loggedIn>
+    <img [src]="authService.currentUser.photoURL ? authService.currentUser.photoURL : 'assets/placeholder.png'" alt="usrimg">
+    <h3 class="name">{{ authService.currentUser.displayName ? authService.currentUser.displayName : 'John Doe' }}</h3>
+    <h4 class="email">Email : {{authService.currentUser.email}}</h4>
+    <h4 class="uid">UID : {{authService.currentUser.uid}}</h4>
+</ng-template>
+<ng-template #default>
+    <h2 routerLink="/login">Login</h2>
+    <h2 routerLink="/register">Register</h2>
+</ng-template>

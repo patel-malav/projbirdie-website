@@ -1,10 +1,24 @@
 :host {
     height: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    h1 {
-        grid-column: 2 / 3;
-        grid-row: 2 / 3;
+    grid-template-areas: "img name"
+                         "email email"
+                         "uid uid";
+    img {
+        grid-area: img;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .name {
+        grid-area: name;
+        place-self: center;
+    }
+    .email {
+        grid-area: email;
+    }
+    .uid {
+        grid-area: uid;
     }
 }
