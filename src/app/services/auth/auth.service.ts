@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase';
 import { Observable } from 'rxjs';
+import * as md from 'mobile-detect';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +14,16 @@ export class AuthService {
 
   constructor(private afAuth: AngularFireAuth, private router: Router) {
     // Checks for logged-in user
+    this.afAuth.auth.getRedirectResult().then((credential) => {
+      if(credential.user) {
+        this.authState = auth;
+        this.updateUserData();
+        this.router.navigate(['account']);
+      }
+    }).catch((err) => { console.log(err); });
     this.afAuth.authState.subscribe( auth => {
       this.authState = auth;
-    })
+    });
   }
 
   // Returns true if user loggedin
@@ -39,11 +47,19 @@ export class AuthService {
   }
 
   // Social Login - private method
-  private async socialSignIn(provider) {
+  private async socialSignIn(provider: any) {
     try {
-      const credential = await this.afAuth.auth.signInWithPopup(provider);
-      this.authState = credential.user;
-      this.updateUserData();
+      if(new md(window.navigator.userAgent).mobile()) {
+        // console.log('MOBILE');
+        // alert('Mobile');
+        this.afAuth.auth.signInWithRedirect(provider);
+      } else {
+        // console.log('Browser');
+        const credential = await this.afAuth.auth.signInWithPopup(provider);
+        this.authState = credential.user;
+        this.updateUserData();
+        this.router.navigate(['account']);
+      }
     } catch(err) {
       console.log(err);
     }
@@ -78,6 +94,7 @@ export class AuthService {
     try {
       const user = await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
       this.updateUserData();
+      this.router.navigate(['account']);
     } catch(err) {
       console.log(err);
     }
@@ -87,6 +104,7 @@ export class AuthService {
     try {
       const user = await this.afAuth.auth.signInWithEmailAndPassword(email, password);
       this.updateUserData();
+      this.router.navigate(['account']);
     } catch(err) {
       console.log(err);
     }
@@ -112,47 +130,4 @@ export class AuthService {
   private updateUserData() {
     console.log('User Data updated');
   }
-  // private user = new BehaviorSubject<User>(null);
-  // public user$ = this.user.asObservable();
-  // constructor(private afAuth: AngularFireAuth, private router: Router) {
-  //   // this.afAuth.user.subscribe((user) => {
-  //   //   console.log(user.email);
-  //   // })
-  //   this.afAuth.authState.subscribe(
-  //     (value) => {
-  //       const user = new User(value);
-  //       this.user.next(user);
-  //       localStorage.setItem('data', JSON.stringify(user));      
-  //     },
-  //     (err) => { 
-  //       console.log(err);
-  //     }
-  //   );
-  // }
-
-  // loginWithEmail(data) {
-  //   this.afAuth.auth.signInWithEmailAndPassword(data.email, data.password)
-  //   .then(value => {
-  //     const user = new User(value.user);
-  //     this.user.next(user);
-  //     localStorage.setItem('data', JSON.stringify(user));
-  //     this.router.navigate(['/', 'account']);
-  //   })
-  //   .catch(err => {
-  //     console.log(err);
-  //   });
-  // }
-
-  // registerWithEmail(data) {
-  //   this.afAuth.auth.createUserWithEmailAndPassword(data.email, data.password)
-  //   .then(value => {
-  //     const user = new User(value.user);
-  //     this.user.next(user);
-  //     localStorage.setItem('data', JSON.stringify(user));
-  //     this.router.navigate(['/', 'account']);
-  //   })
-  //   .catch(err => {
-  //     console.log(err);
-  //   });
-  // }
 }

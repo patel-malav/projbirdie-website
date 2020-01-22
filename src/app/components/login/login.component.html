@@ -10,3 +10,6 @@
     <button mat-raised-button type="submit" [disabled]="!loginForm.valid">Login</button>
 </form>
 <mat-divider></mat-divider>
+<button mat-raised-button type="button" (click)="authService.googleLogin()">Google Login</button>
+<pre>{{authService.currentUser?.providerData | json}}</pre>
+<mat-divider></mat-divider>
