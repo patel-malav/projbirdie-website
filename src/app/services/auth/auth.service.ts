@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { auth } from 'firebase';
+import { auth } from 'firebase/app';
 import { Observable } from 'rxjs';
 import * as md from 'mobile-detect';
 
@@ -37,7 +37,7 @@ export class AuthService {
   }
 
   // Returs current user as Observable
-  get currentUser$(): Observable<any> {
+  get currentUser$(): Observable<firebase.User> {
     return this.afAuth.authState;
   }
 

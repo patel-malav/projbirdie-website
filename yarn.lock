@@ -1777,6 +1777,13 @@ asynckit@^0.4.0:
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
   integrity sha1-x57Zf380y48robyXkLzDZkdLS3k=
 
+atft@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/atft/-/atft-1.2.0.tgz#79238877dd72d40444e5053e5d43ca49d79e9948"
+  integrity sha512-bdCh7f0UjY4vYk/siyASRAtq+Am30WYsKnsCsjk141Y2IBKvZ4vAfhVeYben96NJ1UUSjlC5xpR/UDF75iJv5g==
+  dependencies:
+    tslib "^1.9.0"
+
 atob@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
@@ -7716,6 +7723,11 @@ terser@^4.1.2:
     commander "^2.20.0"
     source-map "~0.6.1"
     source-map-support "~0.5.12"
+
+three.meshline@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/three.meshline/-/three.meshline-1.2.0.tgz#89a0c9d67d8062e5649dc0ac9aa16f14e7c199b5"
+  integrity sha512-E7s9xwgjUhQWIvXBMIdCOIvpT1qV9UlntzaaJTWzJvYtvI2ZvVsX8EM8FxoiG5aptXuKbp5osnvcJCCkYOjmBA==
 
 three@^0.112.1:
   version "0.112.1"
