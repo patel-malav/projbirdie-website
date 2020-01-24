@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { WebGlRendererComponent } from './components/web-gl-renderer/web-gl-renderer.component';
+import { RendererComponent } from './renderer/renderer.component';
 
 @NgModule({
   declarations: [
-    WebGlRendererComponent
+    RendererComponent
   ],
   imports: [
     CommonModule,
   ],
   exports: [
-    WebGlRendererComponent
+    RendererComponent
   ]
 })
 export class ThreeModule { }
