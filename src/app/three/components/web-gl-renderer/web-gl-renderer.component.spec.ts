@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CanvasComponent } from './canvas.component';
+import { WebGlRendererComponent } from './web-gl-renderer.component';
 
-describe('CanvasComponent', () => {
-  let component: CanvasComponent;
-  let fixture: ComponentFixture<CanvasComponent>;
+describe('WebGlRendererComponent', () => {
+  let component: WebGlRendererComponent;
+  let fixture: ComponentFixture<WebGlRendererComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CanvasComponent ]
+      declarations: [ WebGlRendererComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CanvasComponent);
+    fixture = TestBed.createComponent(WebGlRendererComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
