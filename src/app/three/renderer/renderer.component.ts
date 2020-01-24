@@ -1,59 +1,90 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { Scene, PerspectiveCamera, WebGLRenderer, BoxGeometry, MeshBasicMaterial, Mesh } from 'three';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, ContentChild, Input } from '@angular/core';
+import { WebGLRenderer } from 'three';
+import { PerspectiveCameraComponent } from '../perspective-camera/perspective-camera.component';
+import { SceneComponent } from '../scene/scene.component';
 
 @Component({
   selector: 'three-renderer',
-  templateUrl: './renderer.component.html'
+  templateUrl: './renderer.component.html',
+  styleUrls: ['./renderer.component.scss']
 })
 export class RendererComponent implements OnInit, AfterViewInit {
 
+  renderer: WebGLRenderer;
+
+  // @Input() width: number;
+  // @Input() height: number;
+  private width: number;
+  private height: number;
+
   @ViewChild('canvas', {static: false})
   private canvasRef: ElementRef;
+
+  @ContentChild(PerspectiveCameraComponent, {static: false})
+  private cameraComp: PerspectiveCameraComponent;
+
+  @ContentChild(SceneComponent, { static: false})
+  private sceneComp: SceneComponent;
 
   get canvas(): HTMLCanvasElement {
     return this.canvasRef.nativeElement;
   }
 
-  constructor() {
-    // console.log('HELLO CONSTRUCTOR', this.canvas);
-  }
+  constructor() { }
 
   ngOnInit() {
-    // console.log('On INIT', this.canvas);
+    let html = document.documentElement;
+    this.width = html.clientWidth;
+    // this.height = html.clientHeight;
+    this.height = window.innerHeight;
+    console.log(this.width, this.height);
   }
 
   ngAfterViewInit(): void {
-    console.log(this.canvas);
+    console.log('Rendering Init');
 
-    let width = this.canvas.parentElement.parentElement.clientWidth;
-    let height = this.canvas.parentElement.parentElement.clientHeight;
+    this.renderer = new WebGLRenderer({ canvas: this.canvas });
+    this.renderer.setSize( this.width, this.height );
+    // this.renderer.setSize( 400, 400 );
 
-    var scene = new Scene();
-			var camera = new PerspectiveCamera( 75, width / height, 0.1, 1000 );
+    this.renderer.render(this.sceneComp.scene, this.cameraComp.camera);
 
-			var renderer = new WebGLRenderer({
-        canvas: this.canvas
-      });
- 
-      renderer.setSize( width, height );
-      
-			var geometry = new BoxGeometry( 1, 1, 1 );
-			var material = new MeshBasicMaterial( { color: 0x00ff00 } );
-			var cube = new Mesh( geometry, material );
-			scene.add( cube );
+    // var animate = function () {
+    //   requestAnimationFrame( animate );
 
-			camera.position.z = 5;
+    //   cube.rotation.x += 0.01;
+    //   cube.rotation.y += 0.01;
 
-			var animate = function () {
-				requestAnimationFrame( animate );
+    //   renderer.render( scene, this.cameraComp.camera );
+    // };
 
-				cube.rotation.x += 0.01;
-				cube.rotation.y += 0.01;
-
-				renderer.render( scene, camera );
-			};
-
-			animate();
+    // animate();
   }
+
+  // ngOnChanges(changes: SimpleChanges): void {
+    // console.log(changes);
+
+    // try {
+    //   if(changes.width.isFirstChange() && changes.width.isFirstChange()) {
+    //     console.log(`First Value - Width : ${changes.width.currentValue} Height : ${changes.height.currentValue}`);
+    //   } else {
+    //     console.log(changes);
+    //     const widthChng = changes.width && changes.width.currentValue;
+    //     const heightChng = changes.height && changes.height.currentValue;
+    //     if(widthChng || heightChng) {
+    //       this.renderer.setSize(this.width, this.height);
+    //     }
+    //   }
+    // } catch(err) {
+    //   console.log(`ERROR IN RENDER ON CHANGES : ${err}`);
+    // }
+
+    // if(changes.width && changes.width.firstChange && changes.height && changes.height.firstChange) {
+    //   console.log(`first change`);
+    // } else {
+
+    // }
+
+  // }
 
 }

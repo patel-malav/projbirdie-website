@@ -1,6 +1,7 @@
 :host {
     display: grid;
-    grid-template-rows: min-content min-content minmax(min-content, 100vh) min-content;
+    // grid-template-rows: min-content min-content minmax(min-content, 100vh) min-content;
+    grid-template-rows: min-content min-content 100vh min-content;
     grid-template-columns: 1fr;
     header {
         grid-area: header;
