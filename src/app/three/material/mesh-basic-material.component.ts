@@ -1,4 +1,4 @@
-import { Directive, AfterViewInit } from '@angular/core';
+import { Directive, AfterViewInit, Input } from '@angular/core';
 import { MeshBasicMaterial } from 'three';
 
 @Directive({
@@ -7,14 +7,16 @@ import { MeshBasicMaterial } from 'three';
 
 export class MeshBasicMaterialComponent implements AfterViewInit {
 
+  @Input() private color: number;
+  
   material: MeshBasicMaterial;
 
-  constructor() {
-    this.material = new MeshBasicMaterial({color: 0x0fffff});
-  }
+  constructor() { }
 
   ngAfterViewInit(): void {
     console.log('material view Init');
+    this.material = new MeshBasicMaterial({color: this.color});
+    this.material.wireframe = true;
   }
 
 }

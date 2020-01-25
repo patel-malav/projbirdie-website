@@ -6,10 +6,12 @@ import { PerspectiveCamera } from 'three';
 })
 export class PerspectiveCameraComponent implements OnInit, AfterViewInit { 
 
-  // @Input() width: number;
-  // @Input() height: number;
   private width: number;
   private height: number;
+
+  @Input() private posX: number;
+  @Input() private posY: number;
+  @Input() private posZ: number;
 
   camera: PerspectiveCamera;
 
@@ -26,8 +28,9 @@ export class PerspectiveCameraComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     console.log('perspective camera Init');
     this.camera = new PerspectiveCamera(75, this.width / this.height, 0.1, 1000);
-    // this.camera = new PerspectiveCamera(75, 400 / 400, 0.1, 1000);
-    this.camera.position.z = 5;
+    this.camera.translateX(this.posX ? this.posX: 0);
+    this.camera.translateY(this.posY ? this.posY: 0);
+    this.camera.translateZ(this.posZ ? this.posZ: 0);
     console.log('perspective camera over');
   }
 
