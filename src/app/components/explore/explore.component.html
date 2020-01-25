@@ -1,22 +1,9 @@
-<!-- <atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2> -->
-    <!-- <atft-renderer-canvas #mainRenderer> -->
-      <!-- <atft-perspective-camera -->
-        <!-- [fov]=60 [near]=1 [far]=1100 -->
-        <!-- positionX=20 positionY=50 positionZ=50> -->
-      <!-- </atft-perspective-camera> -->
-      <!-- <atft-scene> -->
-        <!-- <atft-axes-helper size=200></atft-axes-helper> -->
-        <!-- <atft-grid-helper size=100 divisions=10></atft-grid-helper> -->
-      <!-- </atft-scene> -->
-    <!-- </atft-renderer-canvas> -->
-<!-- </atft-orbit-controls> -->
-
 <three-renderer>
   <three-perspective-camera></three-perspective-camera>
   <three-scene>
     <three-object>
-      <three-geometry></three-geometry>
-      <three-material></three-material>
+      <three-sphere-geometry></three-sphere-geometry>
+      <three-mesh-basic-material></three-mesh-basic-material>
     </three-object>
   </three-scene>
 </three-renderer>

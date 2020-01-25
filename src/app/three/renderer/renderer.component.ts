@@ -11,8 +11,8 @@ import { SceneComponent } from '../scene/scene.component';
 export class RendererComponent implements OnInit, AfterViewInit {
 
   renderer: WebGLRenderer;
-
   // @Input() width: number;
+
   // @Input() height: number;
   private width: number;
   private height: number;
@@ -45,22 +45,7 @@ export class RendererComponent implements OnInit, AfterViewInit {
 
     this.renderer = new WebGLRenderer({ canvas: this.canvas, antialias: true });
     this.renderer.setSize( this.width, this.height );
-    // this.renderer.setSize( 400, 400 );
-
-    // this.renderer.render(this.sceneComp.scene, this.cameraComp.camera);
-
     this.render();
-
-    // var animate = function () {
-    //   requestAnimationFrame( animate );
-
-    //   cube.rotation.x += 0.01;
-    //   cube.rotation.y += 0.01;
-
-    //   renderer.render( scene, this.cameraComp.camera );
-    // };
-
-    // animate();
   }
 
   render(): void {

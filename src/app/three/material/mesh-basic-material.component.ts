@@ -2,10 +2,10 @@ import { Directive, AfterViewInit } from '@angular/core';
 import { MeshBasicMaterial } from 'three';
 
 @Directive({
-  selector: 'three-material',
+  selector: 'three-mesh-basic-material',
 })
 
-export class MaterialComponent implements AfterViewInit {
+export class MeshBasicMaterialComponent implements AfterViewInit {
 
   material: MeshBasicMaterial;
 

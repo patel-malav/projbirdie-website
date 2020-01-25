@@ -1,15 +1,14 @@
 import { Directive, AfterViewInit } from '@angular/core';
-import { BoxGeometry, Geometry, SphereGeometry } from 'three';
+import { Geometry, SphereGeometry } from 'three';
 
 @Directive({
-  selector: 'three-geometry',
+  selector: 'three-sphere-geometry',
 })
-export class GeometryComponent implements AfterViewInit {
+export class SphereGeometryComponent implements AfterViewInit {
 
   geometry: Geometry;
 
-  constructor() { 
-    // this.geometry = new BoxGeometry(1, 1, 1);
+  constructor() {
     this.geometry = new SphereGeometry(1, 32, 32);
   }
 

@@ -1,7 +1,7 @@
 import { Directive, AfterViewInit, ContentChild, ElementRef } from '@angular/core';
 import { Mesh } from 'three';
-import { GeometryComponent } from '../geometry/geometry.component';
-import { MaterialComponent } from '../material/material.component';
+import { SphereGeometryComponent } from '../geometry/sphere-geometry.component';
+import { MeshBasicMaterialComponent } from '../material/mesh-basic-material.component';
 
 @Directive({
   selector: 'three-object',
@@ -10,11 +10,11 @@ export class ObjectComponent implements AfterViewInit {
 
   object: Mesh;
 
-  @ContentChild(GeometryComponent, {static: false})
-  private geometryRef: GeometryComponent;
+  @ContentChild(SphereGeometryComponent, {static: false})
+  private geometryRef: SphereGeometryComponent;
 
-  @ContentChild(MaterialComponent, {static: false})
-  private materialRef: MaterialComponent;
+  @ContentChild(MeshBasicMaterialComponent, {static: false})
+  private materialRef: MeshBasicMaterialComponent;
 
   constructor() { }
 

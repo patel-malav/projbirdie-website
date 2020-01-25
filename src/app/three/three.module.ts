@@ -4,8 +4,8 @@ import { RendererComponent } from './renderer/renderer.component';
 import { PerspectiveCameraComponent } from './perspective-camera/perspective-camera.component';
 import { SceneComponent } from './scene/scene.component';
 import { ObjectComponent } from './object/object.component';
-import { MaterialComponent } from './material/material.component';
-import { GeometryComponent } from './geometry/geometry.component';
+import { SphereGeometryComponent } from './geometry/sphere-geometry.component';
+import { MeshBasicMaterialComponent } from './material/mesh-basic-material.component';
 
 @NgModule({
   declarations: [
@@ -13,8 +13,8 @@ import { GeometryComponent } from './geometry/geometry.component';
     PerspectiveCameraComponent,
     SceneComponent,
     ObjectComponent,
-    MaterialComponent,
-    GeometryComponent
+    SphereGeometryComponent,
+    MeshBasicMaterialComponent,
   ],
   imports: [
     CommonModule,
@@ -24,8 +24,8 @@ import { GeometryComponent } from './geometry/geometry.component';
     PerspectiveCameraComponent,
     SceneComponent,
     ObjectComponent,
-    MaterialComponent,
-    GeometryComponent
+    SphereGeometryComponent,
+    MeshBasicMaterialComponent,
   ]
 })
 export class ThreeModule { }

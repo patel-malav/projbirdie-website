@@ -1,7 +1,7 @@
 :host {
     display: grid;
     // grid-template-rows: min-content min-content minmax(min-content, 100vh) min-content;
-    grid-template-rows: min-content min-content 100vh min-content;
+    grid-template-rows: min-content min-content 1fr;
     grid-template-columns: 1fr;
     header {
         grid-area: header;
@@ -12,13 +12,12 @@
     main {
         grid-area: main;
     }
-    footer {
-        grid-area: footer;
-    }
+    // footer {
+    //     grid-area: footer;
+    // }
     grid-template-areas: "header"
                          "navigation"
-                         "main"
-                         "footer";
+                         "main";
 }
 
 // Small devices (landscape phones, 576px and up)
