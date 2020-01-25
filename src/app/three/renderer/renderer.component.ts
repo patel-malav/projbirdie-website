@@ -43,11 +43,13 @@ export class RendererComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     console.log('Rendering Init');
 
-    this.renderer = new WebGLRenderer({ canvas: this.canvas });
+    this.renderer = new WebGLRenderer({ canvas: this.canvas, antialias: true });
     this.renderer.setSize( this.width, this.height );
     // this.renderer.setSize( 400, 400 );
 
-    this.renderer.render(this.sceneComp.scene, this.cameraComp.camera);
+    // this.renderer.render(this.sceneComp.scene, this.cameraComp.camera);
+
+    this.render();
 
     // var animate = function () {
     //   requestAnimationFrame( animate );
@@ -59,6 +61,14 @@ export class RendererComponent implements OnInit, AfterViewInit {
     // };
 
     // animate();
+  }
+
+  render(): void {
+    this.renderer.render(this.sceneComp.scene, this.cameraComp.camera);
+
+    this.sceneComp.animate();
+
+    requestAnimationFrame(() => this.render());
   }
 
   // ngOnChanges(changes: SimpleChanges): void {
