@@ -26,7 +26,6 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 
 // Modules
-import { ThreeModule } from './three/three.module';
 import { AppRoutingModule } from './components/base/app-routing.module';
 
 // Components
@@ -59,7 +58,6 @@ import { ExploreComponent } from './components/explore/explore.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ThreeModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
