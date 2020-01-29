@@ -31,7 +31,7 @@ export class Explorer {
         this.loadModels();
 
         // Objects
-        this.loadObjects();
+        this.createObjects();
 
         // Renderer
         this.createRenderer();
@@ -44,9 +44,9 @@ export class Explorer {
         let fov = 45;
         let aspect = 2;
         let near = 0.1;
-        let far = 350;
+        let far = 600;
         this.camera = new PerspectiveCamera(fov, aspect, near, far);
-        let x = 0, y = 0, z = 150;
+        let x = 0, y = 0, z = 250;
         this.camera.position.set(x, y, z);
     }
 
@@ -69,7 +69,7 @@ export class Explorer {
 
     private loadModels() { }
 
-    private loadObjects() {
+    private createObjects() {
         const globe = new Globe();
         this.objects.push(globe);
         this.rootScene.add(globe.object);
