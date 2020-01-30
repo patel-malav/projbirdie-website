@@ -12,7 +12,7 @@ export class Explorer {
     private objects = [];
     private renderer: WebGLRenderer;
 
-    constructor(private canvas: HTMLCanvasElement) {
+    constructor(private canvas: HTMLCanvasElement, private subscriptions: any) {
 
         // Scene
         this.rootScene = new Scene();
@@ -70,9 +70,11 @@ export class Explorer {
     private loadModels() { }
 
     private createObjects() {
-        const globe = new Globe();
-        this.objects.push(globe);
-        this.rootScene.add(globe.object);
+        if(this.subscriptions && this.subscriptions.birdData) {
+            const globe = new Globe({ birdData: this.subscriptions.birdData });
+            this.objects.push(globe);
+            this.rootScene.add(globe.object);
+        }
     }
 
     private createRenderer() {
@@ -89,6 +91,14 @@ export class Explorer {
         // this.renderer.gammaOutput = true;
 
         // this.renderer.physicallyCorrectLights = true;
+    }
+
+    public unsubscribe() {
+        this.objects.forEach(obj => {
+            if(!!obj.unsubscribe) {
+                obj.unsubscribe();
+            }
+        });
     }
 
     private update() {

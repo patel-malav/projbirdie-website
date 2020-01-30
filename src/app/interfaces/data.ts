@@ -1,6 +1,12 @@
-export interface BirdData {
+export interface Coordinates {
     lattitude: number; // change it to string
     longitude: number; // change it to string and modify method to handle directions
+}
+
+export interface BirdData {
+    name?: string;
+    position: Coordinates;
+    path?: Coordinates[];
 }
 
 export interface UserData {
