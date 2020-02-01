@@ -15,19 +15,17 @@ export class Bird {
         } else {
             this.object = new Mesh(geometry, material);
         }
+        // console.log(data);
 
         let temp = translateLatLong(data.lattitude, data.longitude, 10);
         // console.log(temp);
         this.object.position.copy(temp);
-        
-        // console.log(data);
-
     }
 
     get update() {
         return () => {
             this.object.rotateX(0.02);
-            this.animateTrajectory();
+            // this.animateTrajectory();
         }
     }
 

@@ -11,7 +11,7 @@ interface Path {
 export interface BirdData {
     name?: string;
     position: Coordinates;
-    path?: Path | Path[];
+    path?: Path[];
 }
 
 export interface UserData {

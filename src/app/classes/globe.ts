@@ -1,4 +1,4 @@
-import { SphereBufferGeometry, MeshBasicMaterial, Color, Mesh, BoxGeometry, Matrix4, Vector3, TextureLoader, AxesHelper, GridHelper, Clock, Geometry, Line, LineBasicMaterial, EllipseCurve, CatmullRomCurve3, BufferGeometry, QuadraticBezierCurve3, LineCurve3 } from 'three';
+import { SphereBufferGeometry, MeshBasicMaterial, Color, Mesh, BoxGeometry, Matrix4, Vector3, TextureLoader, AxesHelper, GridHelper, Clock, Geometry, Line, LineBasicMaterial, EllipseCurve, CatmullRomCurve3, BufferGeometry, QuadraticBezierCurve3, LineCurve3, Object3D } from 'three';
 import { Bird } from './bird';
 import { BirdData } from '../interfaces/data';
 import { translateLatLong } from './functions';
@@ -12,10 +12,11 @@ export class Globe {
     private material: MeshBasicMaterial;
     public object: Mesh;
     private birdObjects = [];
+    private trackObjects = [];
 
     private loader = new TextureLoader();
-    // private clock = new Clock(false);
-    // private completed = false;
+    private clock = new Clock(false);
+    private completed = false;
 
     constructor(private data?: any) {
         const color = '#87ceeb';
@@ -42,12 +43,18 @@ export class Globe {
 
                 let material = new LineBasicMaterial({color: '#ffffff'});
                 let track = new Track(data.path, {material});
-                this.object.add(track.object);
+
+                if(track.object) {
+                    this.trackObjects.push(track);
+                    this.object.add(track.object);
+                }
 
                 let width = 2; // temp
                 let bird = new Bird(data.position, {geometry: new BoxGeometry(width, width, width), material: redMaterial});
-                this.birdObjects.push(bird);
-                this.object.add(bird.object);
+                if(bird.object) {
+                    this.birdObjects.push(bird);
+                    this.object.add(bird.object);
+                }
             });
         }
     }
@@ -61,7 +68,27 @@ export class Globe {
     get update() {
         return () => {
             this.birdObjects.forEach(child => { child.update() });
+            this.move(this.birdObjects[0], this.trackObjects[0]);
             this.object.rotateY(0.001);
         };
+    }
+
+    private move(bird, track) {
+        if(bird && track && track.curvePath) {            
+            if(!this.clock.running && !this.completed) {
+                this.clock.start();
+            }
+            let speed = 0.02;
+            let time = this.clock.getElapsedTime() * speed;
+    
+            // console.log(time);
+            
+            if(time < 1) {
+                bird.object.position.copy(track.curvePath.getPoint(time));
+            } else {
+                this.clock.stop();
+                // this.completed = true;
+            }
+        }
     }
 }
