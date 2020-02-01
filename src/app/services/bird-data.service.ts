@@ -9,19 +9,18 @@ export class BirdDataService {
 
   private data: BirdData = {
     position:  {
-      lattitude: 45,
+      lattitude: 0,
       longitude: 0
     },
     path: [
-      {
-        lattitude: 0, longitude: 0
-      },
-      {
-        lattitude: 0, longitude: 180
-      },
-      {
-        lattitude: 90, longitude: 180
-      }
+      { start: { lattitude: 0, longitude: 0 }, end: { lattitude: 90, longitude: 0 }},
+      { start: { lattitude: 90, longitude: 0 }, end: { lattitude: 0, longitude: 90 }},
+      { start: { lattitude: 0, longitude: 90 }, end: { lattitude: -90, longitude: 90 }},
+      { start: { lattitude: -90, longitude: 90 }, end: { lattitude: 0, longitude: 180 }},
+      { start: { lattitude: 0, longitude: 180 }, end: { lattitude: 90, longitude: 180 }},
+      { start: { lattitude: 90, longitude: 180 }, end: { lattitude: 0, longitude: 270 }},
+      { start: { lattitude: 0, longitude: 270 }, end: { lattitude: -90, longitude: 270 }},
+      { start: { lattitude: -90, longitude: 270 }, end: { lattitude: 0, longitude: 360 }},    
     ]
   };
 

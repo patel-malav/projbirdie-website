@@ -9,15 +9,17 @@ export class Bird {
     private clock = new Clock(false);
     private completed = false;
 
-    constructor(private data: BirdData, {model = null, geometry, material}) {
+    constructor(private data: any, {geometry, material, model = null}) {
         if(!!model) {
             this.object = model;
         } else {
             this.object = new Mesh(geometry, material);
         }
 
-        let temp = translateLatLong(data.position.lattitude, data.position.longitude, 10);
-        this.object.position.set(temp.posX, temp.posY, temp.posZ);
+        let temp = translateLatLong(data.lattitude, data.longitude, 10);
+        // console.log(temp);
+        this.object.position.copy(temp);
+        
         // console.log(data);
 
     }

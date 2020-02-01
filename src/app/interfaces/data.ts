@@ -3,10 +3,15 @@ export interface Coordinates {
     longitude: number; // change it to string and modify method to handle directions
 }
 
+interface Path {
+    start: Coordinates,
+    end: Coordinates
+}
+
 export interface BirdData {
     name?: string;
     position: Coordinates;
-    path?: Coordinates[];
+    path?: Path | Path[];
 }
 
 export interface UserData {

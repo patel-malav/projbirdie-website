@@ -1,13 +1,15 @@
+import { Vector3 } from 'three';
+
 export function translateLatLong(lat: number, long: number, alti = 0, radius = 100) {
-    let posX = 0, posY = 0, posZ = 0;
+    let x = 0, y = 0, z = 0;
     const radian = Math.PI / 180, mag = alti +  radius;
     lat *= radian;
     long *= radian;
     // let f = 0; // flatting
     
-    posX = mag * Math.cos(lat) * Math.cos(long);
-    posY = mag * Math.sin(lat);
-    posZ = mag * Math.sin(long) * Math.cos(lat);
+    x = mag * Math.cos(lat) * Math.cos(long);
+    y = mag * Math.sin(lat);
+    z = mag * Math.sin(long) * Math.cos(lat);
 
-    return {posX, posY, posZ};
+    return new Vector3(x, y, z);
 }
