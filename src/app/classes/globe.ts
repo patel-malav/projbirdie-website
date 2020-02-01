@@ -21,9 +21,10 @@ export class Globe {
     constructor(private data?: any) {
         const color = '#87ceeb';
         this.geometry = new SphereBufferGeometry(this.radius, 32, 32);
-        this.material = new MeshBasicMaterial({map: this.loader.load('assets/Albedo.png')});
+        // this.material = new MeshBasicMaterial({map: this.loader.load('assets/Albedo.png')});
+        this.material = new MeshBasicMaterial({map: this.loader.load(`https://i.imgur.com/45naBE9.jpg`)});
         // this.material = new MeshBasicMaterial({color: '#ffff00'});
-        this.material.wireframe = true;
+        // this.material.wireframe = true;
         this.object = new Mesh(this.geometry, this.material);
 
         this.object.add(new AxesHelper(200));
