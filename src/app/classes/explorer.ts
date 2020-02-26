@@ -78,9 +78,12 @@ export class Explorer {
 
     private createObjects() {
         if(this.subscriptions && this.subscriptions.birdData) {
-            const globe = new Globe({ birdData: this.subscriptions.birdData });
+            const globe = new Globe({ birdData: this.subscriptions.birdData, rotate: true });
             this.objects.push(globe);
             this.rootScene.add(globe.object);
+            // const globe2 = new Globe({ birdData: this.subscriptions.birdData, rotate: true });
+            // this.objects.push(globe2);
+            // this.rootScene.add(globe2.object);
         }
     }
 

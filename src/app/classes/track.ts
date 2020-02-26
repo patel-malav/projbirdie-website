@@ -17,27 +17,6 @@ export class Track {
 
                 // console.log(data);
 
-                // ❌ Catmull Rom Curve
-                // let points: Vector3[] = [];
-                // this.data.forEach(path => {
-                //     // points.push(translateLatLong(path.start.lattitude, path.start.longitude, 5));
-                //     // points.push(translateLatLong(path.end.lattitude, path.end.longitude, 5));
-                //     points.push(
-                //         translateLatLong(0, 0, 5), 
-                //         translateLatLong(22.5, 0, 5), 
-                //         translateLatLong(45, 0, 5), 
-                //         translateLatLong(67.5, 0, 5), 
-                //         translateLatLong(90, 0, 5),
-                //         translateLatLong(67.5, 90, 5),
-                //         translateLatLong(45, 90, 5),
-                //         translateLatLong(22.5, 90, 5),
-                //         translateLatLong(0, 90, 5)
-                //         );
-                // });
-                // let curve = new CatmullRomCurve3(points, false, null, 0);
-                // geometry.setFromPoints(curve.getPoints(50));
-
-
                 // ❌ Cubic Bezier Curve
                 this.curvePath = new CurvePath();
                 let segments = this.data.map(path => {

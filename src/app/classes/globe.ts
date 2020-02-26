@@ -18,22 +18,24 @@ export class Globe {
     private loader = new TextureLoader();
     private clock = new Clock(false);
     private completed = false;
+    box: Mesh;
 
     constructor(private data?: any) {
         const color = '#87ceeb';
         this.geometry = new SphereBufferGeometry(this.radius, 32, 32);
         // this.material = new MeshBasicMaterial({map: this.loader.load('assets/Albedo.png')});
-        this.material = new MeshBasicMaterial({color: '#ffff00', map: this.loader.load(`https://i.imgur.com/45naBE9.jpg`)});
-        this.material.wireframe = true;
+        this.material = new MeshBasicMaterial({map: this.loader.load(`https://i.imgur.com/45naBE9.jpg`)});
+        // this.material = new MeshBasicMaterial({color: '#ff00ff'});
+        // this.material.wireframe = true;
         this.object = new Mesh(this.geometry, this.material);
 
-        this.object.add(new AxesHelper(200));
-        this.object.add(new GridHelper(240, 12));
+        // this.object.add(new AxesHelper(200));
+        // this.object.add(new GridHelper(240, 12));
 
         // this.object.applyMatrix(new Matrix4().makeScale(1.0, 1.0, 1.1)); // Makes the sphere ellipsoid 🤷 how not yet learned deep enough.
 
         let redMaterial = new MeshStandardMaterial({color: '#ff0000'});
-        // let greenMaterial = new MeshBasicMaterial({color: '#00ff00'});
+        let greenMaterial = new MeshBasicMaterial({color: '#00ff00'});
         // let blueMaterial = new MeshBasicMaterial({color: '#0000ff'});
         // let yellowMaterial = new MeshBasicMaterial({color: '#ffff00'});
 
@@ -53,7 +55,7 @@ export class Globe {
                 try {
                     let loader = new OBJLoader2();
                     loader.load('../../assets/HUMBIRD.OBJ', (obj: Object3D) => {
-                        obj.scale.set(100, 100, 100);
+                        obj.scale.set(200, 150, 200);
                         let bird = new Bird(data.position, {model: obj, geometry: null, material: redMaterial});
                         if(bird.object) {
                             // bird.object.add(new AxesHelper(0.1));
@@ -64,15 +66,6 @@ export class Globe {
                 } catch(e) {
                     console.log('img not loaded' + e);
                 }
-
-                // let width = 2; // temp
-                // // let bird = new Bird(data.position, {model: model, geometry: null, material: null});
-                // let bird = new Bird(data.position, {geometry: new BoxGeometry(width, width, width), material: redMaterial});
-                // if(bird.object) {
-                //     this.birdObjects.push(bird);
-                //     this.object.add(bird.object);
-                // }
-
             });
         }
     }
@@ -85,23 +78,26 @@ export class Globe {
 
     get update() {
         return () => {
+            if(this.data.rotate) {
+                this.object.rotateY(0.001);
+            }
             this.birdObjects.forEach(child => { child.update() });
             this.move(this.birdObjects[0], this.trackObjects[0]);
-            // this.object.rotateY(0.001);
         };
     }
 
     private move(bird: Bird, track: Track) {
-        if(bird && track && track.curvePath) {            
+        if(bird && track && track.curvePath) {
             if(!this.clock.running && !this.completed) {
                 this.clock.start();
             }
             let speed = 0.02;
             let time = this.clock.getElapsedTime() * speed;            
-            if(time < 1) {
+            if(time < 0.99) {
                 let point = track.curvePath.getPoint(time);
                 bird.object.position.copy(point);
-                let lookPoint = track.curvePath.getPoint(time + 0.02);
+                let lookPoint = track.curvePath.getPoint(time + 0.01);
+                this.object.localToWorld(lookPoint);
                 bird.object.lookAt(lookPoint);
             } else {
                 this.clock.stop();
