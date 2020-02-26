@@ -1,5 +1,6 @@
 import { WebGLRenderer, Scene, Camera, PerspectiveCamera, SphereGeometry, MeshPhongMaterial, Mesh, DirectionalLight, Color, Light, PointLight, BoxGeometry, Object3D, MeshBasicMaterial } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { OBJLoader2 } from 'three/examples/jsm/loaders/OBJLoader2';
 import { Globe } from './globe';
 
 export class Explorer {
@@ -67,7 +68,13 @@ export class Explorer {
         this.rootScene.add(light);
     }
 
-    private loadModels() { }
+    private loadModels() { 
+        // let loader = new OBJLoader2();
+        // loader.load('assets/HUMBIRD.OBJ', (obj) => {
+        //     this.rootScene.add(obj);
+        //     console.log(this.rootScene.children);
+        // });
+    }
 
     private createObjects() {
         if(this.subscriptions && this.subscriptions.birdData) {

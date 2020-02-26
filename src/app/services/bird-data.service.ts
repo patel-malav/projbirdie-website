@@ -13,15 +13,18 @@ export class BirdDataService {
       longitude: 0
     },
     path: [
-        { start: { lattitude: 0, longitude: 0 }, end: { lattitude: 90, longitude: 0 }},
-        { start: { lattitude: 90, longitude: 0 }, end: { lattitude: 0, longitude: 90 }},
-        { start: { lattitude: 0, longitude: 90 }, end: { lattitude: -90, longitude: 90 }},
-        { start: { lattitude: -90, longitude: 90 }, end: { lattitude: 0, longitude: 180 }},
-        { start: { lattitude: 0, longitude: 180 }, end: { lattitude: 90, longitude: 180 }},
-        { start: { lattitude: 90, longitude: 180 }, end: { lattitude: 0, longitude: 270 }},
-        { start: { lattitude: 0, longitude: 270 }, end: { lattitude: -90, longitude: 270 }},
-        { start: { lattitude: -90, longitude: 270 }, end: { lattitude: 0, longitude: 360 }},
-        { start: { lattitude: 0, longitude: 0 }, end: { lattitude: 45, longitude: 45 }}
+        // { start: { lattitude: 0, longitude: 0 }, end: { lattitude: 90, longitude: 0 }},
+        // { start: { lattitude: 90, longitude: 0 }, end: { lattitude: 0, longitude: 90 }},
+        // { start: { lattitude: 0, longitude: 90 }, end: { lattitude: -90, longitude: 90 }},
+        // { start: { lattitude: -90, longitude: 90 }, end: { lattitude: 0, longitude: 180 }},
+        // { start: { lattitude: 0, longitude: 180 }, end: { lattitude: 90, longitude: 180 }},
+        // { start: { lattitude: 90, longitude: 180 }, end: { lattitude: 0, longitude: 270 }},
+        // { start: { lattitude: 0, longitude: 270 }, end: { lattitude: -90, longitude: 270 }},
+        // { start: { lattitude: -90, longitude: 270 }, end: { lattitude: 0, longitude: 360 }},
+        { start: { lattitude: 10, longitude: 15 }, end: { lattitude: 23.4, longitude: 55 }},
+        { start: { lattitude: 23.4, longitude: 55 }, end: { lattitude: 35.4, longitude: 67.3 }},
+        { start: { lattitude: 35.4, longitude: 67.3 }, end: { lattitude: 52.8, longitude: 0 }},
+        { start: { lattitude: 52.8, longitude: 0 }, end: { lattitude: 120, longitude: 35.4 }}
       ]
   };
 

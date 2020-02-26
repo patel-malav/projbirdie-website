@@ -63,9 +63,7 @@ export class Track {
                     let curve = new CubicBezierCurve3(segment.v0, segment.v1, segment.v2, segment.v3);
                     this.curvePath.add(curve);
                 });
-
-                console.log(this.curvePath.autoClose);
-
+                
                 // @ts-ignore
                 geometry.setFromPoints(this.curvePath.getPoints(50));
 

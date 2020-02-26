@@ -11,6 +11,8 @@ export class Bird {
 
     constructor(private data: any, {geometry, material, model = null}) {
         if(!!model) {
+            let body = model.getObjectByName('hum_body');
+            body.material = material;
             this.object = model;
         } else {
             this.object = new Mesh(geometry, material);
@@ -24,7 +26,7 @@ export class Bird {
 
     get update() {
         return () => {
-            this.object.rotateX(0.02);
+            // this.object.rotateX(0.02);
             // this.animateTrajectory();
         }
     }
