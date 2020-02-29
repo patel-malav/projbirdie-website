@@ -39,7 +39,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ContributeComponent } from './components/contribute/contribute.component';
 import { MylistComponent } from './components/mylist/mylist.component';
-import { ExploreComponent } from './components/explore/explore.component'; 
+import { ExploreComponent } from './components/explore/explore.component';
 
 @NgModule({
   declarations: [

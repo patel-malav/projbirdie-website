@@ -23,10 +23,12 @@ export class ExploreComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit() { }
 
   ngAfterViewInit() {
-    new Explorer(this.canvas, {birdData: this.birdDataService.data$});
+    if(this.canvas) {
+      this.explorer = new Explorer(this.canvas, {birdData: this.birdDataService.data$});
+    }
   }
 
   ngOnDestroy(): void {
-    this.explorer.unsubscribe();
+    // this.explorer.unsubscribe();
   }
 }

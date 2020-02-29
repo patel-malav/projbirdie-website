@@ -17,7 +17,7 @@ export class Explorer {
 
         // Scene
         this.rootScene = new Scene();
-        this.rootScene.background =  new Color('#000000');
+        this.rootScene.background =  new Color('#000');
 
         // Camera
         this.createCamera();
@@ -53,6 +53,9 @@ export class Explorer {
 
     private createControl() {
         this.control = new OrbitControls(this.camera, this.canvas);
+        console.log(this.control);
+        this.control.enableKeys = false;
+        this.control.enablePan = false;
     }
 
     private createLights() {
@@ -68,7 +71,7 @@ export class Explorer {
         this.rootScene.add(light);
     }
 
-    private loadModels() { 
+    private loadModels() {
         // let loader = new OBJLoader2();
         // loader.load('assets/HUMBIRD.OBJ', (obj) => {
         //     this.rootScene.add(obj);
@@ -96,7 +99,7 @@ export class Explorer {
         // let height = 600;
         // this.renderer.setSize(width, height);
 
-        // this.renderer.setPixelRatio(window.devicePixelRatio);
+        this.renderer.setPixelRatio(window.devicePixelRatio);
         // this.renderer.gammaFactor = 2.2;
         // this.renderer.gammaOutput = true;
 

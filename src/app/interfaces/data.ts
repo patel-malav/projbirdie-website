@@ -9,7 +9,9 @@ interface Path {
 }
 
 export interface BirdData {
-    name?: string;
+    birdId?: string;
+    comName?: string;
+    sciName?: string;
     position: Coordinates;
     path?: Path[];
 }
@@ -19,10 +21,4 @@ export interface UserData {
     email: string
     photoURL?: string
     displayName?: string
-    // constructor({uid, email, photoURL, displayName}: any) {
-    //     this.uid = uid;
-    //     this.email = email;
-    //     this.displayName = this.displayName;
-    //     this.photoURL = this.photoURL;
-    // }
 }

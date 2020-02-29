@@ -12,14 +12,4 @@ export function translateLatLong(lat: number, long: number, alti = 0, radius = 1
       radius * Math.cos(phi),
       radius * Math.sin(phi) * Math.sin(theta)
     );
-    // const radian = Math.PI / 180, mag = alti +  radius;
-    // lat *= radian;
-    // long *= radian;
-    // // let f = 0; // flatting
-    
-    // x = mag * Math.cos(lat) * Math.cos(long);
-    // y = mag * Math.sin(lat);
-    // z = mag * Math.sin(long) * Math.cos(lat);
-
-    // return new Vector3(-x, y, z);
 }

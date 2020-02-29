@@ -29,6 +29,7 @@
     "mobile-detect": "^1.4.4",
     "rxjs": "~6.5.4",
     "three": "^0.110.0",
+    "three-vignette-background": "^1.0.3",
     "three.meshline": "^1.2.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
